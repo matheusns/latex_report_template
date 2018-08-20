@@ -1,8 +1,8 @@
-\documentclass[letterpaper,12pt]{article}
+\documentclass[a4papper,12pt]{article}
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{amsmath}  % improve math presentation
 \usepackage{graphicx} % takes care of graphic including machinery
-\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage[margin=1in,a4papper]{geometry} % decreases margins
 \usepackage{cite} % takes care of citations
 \usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
 \hypersetup{
@@ -21,13 +21,26 @@
 \author{Matheus Nascimento}
 \date{\today}
 \maketitle
+\pagebreak
 
+% Stops pagebreaks caused by \include
+\begingroup
+\let\clearpage\relax 					
+% It could have been done per group as well:
+		%\begingroup
+		%\let\clearpage\relax
+		%\include{file1}
+		%\include{file2}
+		%\endgroup
+		%\include{file3}
 \include{sections/introduction}
 \include{sections/theory}
 \include{sections/procedures}
 \include{sections/analysis}
 \include{sections/conclusion}
+\endgroup
 
+% references appear in order of citation and labeled numerically
 \bibliographystyle{unsrt}
 \bibliography{bibliography/references}
 
