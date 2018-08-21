@@ -1,4 +1,6 @@
-\documentclass[a4papper,12pt]{article}
+%\documentclass[a4papper,12pt]{article}
+\documentclass{memoir}
+\usepackage[a4paper,centering,headheight=95pt]{geometry}
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{amsmath}  % improve math presentation
 \usepackage{graphicx} % takes care of graphic including machinery
@@ -14,6 +16,30 @@
 }
 %++++++++++++++++++++++++++++++++++++++++
 
+\usepackage{lastpage} % include last page numbering
+\usepackage{chngpage} % allows for temporary adjustment of side margins
+\usepackage{datetime}
+
+
+
+\makepagestyle{mystyle}
+\makeevenhead{mystyle}{}{\thanoshead}{}
+\makeoddhead{mystyle}{}{\thanoshead}{}
+
+\newcommand{\thanoshead}{%
+	\makebox[0pt]{%
+	\centering
+	\begin{tabular}{|p{6cm}|p{6cm}|p{6cm}|}
+		\hline
+		\multicolumn{1}{|c|}{     \includegraphics[height=20pt]{figures/bir_logo}}                                             & \multicolumn{1}{c|}{\textbf{Report's title}}                       & \begin{tabular}[c]{@{}l@{}}Date: xx/xx/xx\\ Proj: MCCR\\ Doc: fsfsfsfsfsfsfsfsfsf\\ Rev: 01\\ Page:\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Responsible:\\ \\ \\ Responsible\end{tabular} & \begin{tabular}[c]{@{}l@{}}Reviewer:\\ \\ \\ Reviewer\end{tabular} & \begin{tabular}[c]{@{}l@{}}Approver:\\ \\ \\ Approver\end{tabular}                                               \\ \hline
+	\end{tabular}
+		
+	}%
+}
+
+\pagestyle{mystyle}
+\aliaspagestyle{plain}{mystyle}
 
 \begin{document}
 
